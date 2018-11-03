@@ -32,6 +32,31 @@
                         <li><a href="{{route('menucategory.index')}}">菜品分类列表</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">活动页面 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{route('activity.index')}}">活动列表</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">抽奖<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{route('activity.index')}}">抽奖</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">会员管理<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{route('member.index')}}">会员列表</a></li>
+                        <li><a href="{{route('member.create')}}">添加会员</a></li>
+                    </ul>
+                </li>
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">
@@ -42,7 +67,7 @@
             <ul class="nav navbar-nav navbar-right">
                 @guest
                 <li><a href="{{ route('login') }}">登录</a></li>
-                <li><a href="{{ route('user.create') }}">注册</a></li>
+                <li><a href="{{ route('shop.create') }}">注册</a></li>
                 @endguest
                 @auth
                 <li class="dropdown">

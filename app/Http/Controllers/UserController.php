@@ -9,7 +9,7 @@ use APP\shop_catagory;
 class UserController extends Controller
 {
     public function create(){
-        $shop_categories=shop_catagory::all();
+        $shop_categories=shop_category::all();
         return view('user/create', compact('shop_categories'));
     }
     //保存管理员账号

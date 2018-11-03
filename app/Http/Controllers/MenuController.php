@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\shop;
+use Illuminate\Support\Facades\Storage;
+
 class MenuController extends Controller
 {
 
@@ -96,7 +98,7 @@ class MenuController extends Controller
             'category_id.required'=>'菜品分类不能为空',
             'goods_img.required'=>'菜品图片不能为空'
         ]);
-        $path = $request->file('goods_img')->store('public/menu');
+
         menu::create([
             'goods_name'=>$request->goods_name,
             'description'=>$request->description,
@@ -110,7 +112,7 @@ class MenuController extends Controller
             'rating_count'=>0,
             'satisfy_count'=>0,
             'satisfy_rate'=>0,
-            'goods_img'=>$path,
+            'goods_img'=>$request->goods_img,
 
         ]);
         session()->flash('success', '添加菜品成功');
@@ -137,14 +139,14 @@ class MenuController extends Controller
             'tips.required'=>'提示信息不能为空',
             'category_id.required'=>'菜品分类不能为空',
         ]);
-        $img = $request->file('goods_img')->store('public/menu');
+        $path= $request->file('goods_img')->store('public/menu');
         $menu->update([
             'goods_name'=>$request->goods_name,
             'description'=>$request->description,
             'goods_price'=>$request->goods_price,
             'tips'=>$request->tips,
             'category_id'=>$request->category_id,
-            'goods_img'=>$img,
+            'goods_img'=>$path,
         ]);
         session()->flash('success', '修改菜品成功');
         return redirect()->route('menu.index');
@@ -159,5 +161,10 @@ class MenuController extends Controller
     {
         $user = Auth::user()->name;
         return view('Menu/show',compact('menu','user'));
+    }
+    public function upload(Request $request)
+    {
+        $path = $request->file('file')->store('public/img');
+        return ['path'=>Storage::url($path)];
     }
 }

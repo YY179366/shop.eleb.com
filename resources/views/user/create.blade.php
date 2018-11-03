@@ -4,7 +4,7 @@
     @include('layout._errors')
     <div class="container">
         <h1 style="text-align: center">添加商户账号</h1>
-        <form action="{{route('user.store')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('shop_catagory.store')}}" method="post" enctype="multipart/form-data">
             <label>
                 商家账号名称:
             </label>

@@ -74,7 +74,7 @@
                         <td>{{$menu->tips}}</td>
                         <td>{{$menu->satisfy_count}}</td>
                         <td>{{$menu->satisfy_rate}}</td>
-                        <td>@if($menu->goods_img) <img class="img-circle"src="{{ \Illuminate\Support\Facades\Storage::url($menu->goods_img) }}" width="50px"/> @endif</td>
+                        <td><img class="img-circle"src="{{ $menu->goods_img }}" width="50px"/> </td>
                         <td>{{ $menu->status==1?'上架':'下架' }}</td>
                         <td>
                             {{--修改--}}
